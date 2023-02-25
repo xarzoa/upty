@@ -9,7 +9,7 @@ jobs:
         - id: create_space
           run: mkdir .space
         - id: add_meta
-          run: curl ${{ secrets.SPACE_FILE }} -o meta
+          run: curl ${{ secrets.META_FILE }} -o meta
         - id: go-back
           run: cd ..
         - id: space_cli
