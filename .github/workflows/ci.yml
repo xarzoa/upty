@@ -5,11 +5,6 @@ jobs:
       name: Push to space
       runs-on: ubuntu-latest
       steps:
-        - id: space_cli
-          run: |
-            curl -fsSL https://get.deta.dev/space-cli.sh | sh
-            echo '/home/runner/.detaspace/bin' >> $GITHUB_PATH
-            echo "SPACE_ACCESS_TOKEN=${{ inputs.SPACE_SECRET }}" >> $GITHUB_ENV
         - uses: actions/checkout@v3
         - id: create_space
           run: mkdir .space
@@ -17,5 +12,12 @@ jobs:
           run: curl ${{ secrets.META_FILE }} -o meta
         - id: go-back
           run: cd ..
+        - id: ls
+          run: ls
+        - id: space_cli
+          run: |
+            curl -fsSL https://get.deta.dev/space-cli.sh | sh
+            echo '/home/runner/.detaspace/bin' >> $GITHUB_PATH
+            echo "SPACE_ACCESS_TOKEN=${{ inputs.SPACE_SECRET }}" >> $GITHUB_ENV
         - id: deploy
-          run: space push
+          run: space push -d 
