@@ -15,13 +15,6 @@ micros:
         trigger: "schedule"
         default_interval: "*/10 * * * *"
 
-  - name: public
-    src: public
-    engine: next
-    public_routes:
-      - "/_next/*"
-      - "/"
-
   - name: backend
     src: backend
     engine: nodejs16
