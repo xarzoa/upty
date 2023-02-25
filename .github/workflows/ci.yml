@@ -15,6 +15,7 @@ jobs:
         - id: space_cli
           run: curl -fsSL https://get.deta.dev/space-cli.sh | sh
         - id: space_login
-          run: /home/runner/.detaspace/bin/space login \ ${{ secrets.SPACE_SECRET }}
+          run: /home/runner/.detaspace/bin/space login
+          with: ${{ secrets.SPACE_SECRET }}
         - id: deploy
           run: /home/runner/.detaspace/bin/space push
