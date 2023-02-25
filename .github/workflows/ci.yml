@@ -8,6 +8,8 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v3
+        - id: create_dot_space
+          run: mkdir .space
         - id: add_meta
           run: curl ${{ secrets.META_FILE }} -o .space/meta
         - id: space_cli
