@@ -12,8 +12,8 @@ jobs:
           run: curl ${{ secrets.META_FILE }} -o meta
         - id: go-back
           run: cd ..
-        - id: ls
-          run: ls
+        - id: path
+          run: echo $PATH
         - id: space_cli
           run: |
             curl -fsSL https://get.deta.dev/space-cli.sh | sh
