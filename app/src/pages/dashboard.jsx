@@ -49,9 +49,9 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (data) {
-      setWebhook(data?.settings?.webhook)
+      setWebhook(data?.settings?.webhook);
     }
-  }, [data])
+  }, [data]);
 
   const addUrl = async (e) => {
     setULoading(true);
@@ -95,7 +95,7 @@ export default function Dashboard() {
           'Content-Type': 'application/json',
         },
         body: 'hello',
-      })
+      });
     } else {
       setError(true);
       toast({
@@ -188,6 +188,17 @@ export default function Dashboard() {
                 icon={<LeftArrowIcon />}
                 onClick={() => router.push('/')}
               />
+              <IconButton
+                colorScheme="gray"
+                aria-label="Home"
+                size="lg"
+                bg="gray.700"
+                p={1}
+                borderRadius="xl"
+                shadow="lg"
+                icon={<ArrowPath />}
+                onClick={() => router.refresh()}
+              />
               <Spacer />
               <HStack>
                 <IconButton
@@ -199,24 +210,15 @@ export default function Dashboard() {
                   borderRadius="xl"
                   shadow="lg"
                   icon={<ClockIcon />}
-                  onClick={() => toast({
-                    title: 'Info',
-                    description: 'History will available in soon..',
-                    status: 'success',
-                    position: 'bottom-left',
-                    isClosable: true,
-                  })}
-                />
-                <IconButton
-                  colorScheme="gray"
-                  aria-label="Home"
-                  size="lg"
-                  bg="gray.700"
-                  p={1}
-                  borderRadius="xl"
-                  shadow="lg"
-                  icon={<ShareIcon />}
-                  onClick={() => router.push('/public')}
+                  onClick={() =>
+                    toast({
+                      title: 'Info',
+                      description: 'History will available in soon..',
+                      status: 'success',
+                      position: 'bottom-left',
+                      isClosable: true,
+                    })
+                  }
                 />
               </HStack>
             </Flex>
@@ -269,35 +271,37 @@ export default function Dashboard() {
               </div>
             ) : (
               <>
-              <Card borderRadius="xl">
-              <CardBody>
-                <Heading size="md">Settings</Heading>
-                <FormControl pt={3}>
-                  <FormLabel>Discord webhook</FormLabel>
-                  <Input
-                    isInvalid={whError}
-                    type="text"
-                    name="webhook"
-                    onChange={handleWebhook}
-                    placeholder="Webhook?"
-                    value={webhook}
-                    borderRadius="xl"
-                  />
-                </FormControl>
-                <Box pt={4}>
-                  <Button
-                    loadingText="Adding ..."
-                    onClick={addWebhook}
-                    borderRadius="xl"
-                    isLoading={wloading}
-                    colorScheme="green"
-                  >
-                    Add webhook
-                  </Button>
-                </Box>
-              </CardBody>
-            </Card>
-              { data.urls.map((url, i) => <Delete url={url} key={i} />) }
+                <Card borderRadius="xl">
+                  <CardBody>
+                    <Heading size="md">Settings</Heading>
+                    <FormControl pt={3}>
+                      <FormLabel>Discord webhook</FormLabel>
+                      <Input
+                        isInvalid={whError}
+                        type="text"
+                        name="webhook"
+                        onChange={handleWebhook}
+                        placeholder="Webhook?"
+                        value={webhook}
+                        borderRadius="xl"
+                      />
+                    </FormControl>
+                    <Box pt={4}>
+                      <Button
+                        loadingText="Adding ..."
+                        onClick={addWebhook}
+                        borderRadius="xl"
+                        isLoading={wloading}
+                        colorScheme="green"
+                      >
+                        Add webhook
+                      </Button>
+                    </Box>
+                  </CardBody>
+                </Card>
+                {data.urls.map((url, i) => (
+                  <Delete url={url} key={i} />
+                ))}
               </>
             )}
           </VStack>

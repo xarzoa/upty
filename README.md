@@ -1,51 +1,65 @@
 # Upty
 
-Uptime monitor, Made for **Detonions**, Made on **Deta**.
+Uptime monitor for **Detonions**.
 
 ## Install
 
 [![Install on Deta](https://deta.space/buttons/dark.svg 'Deta.space')](https://deta.space/discovery/@xarzoa/upty)
 
+🍻**Deta's shipathon winner** for **best app icon**.
+
 **Notes**
-- Don't share your space app url with anyone. (We highly recommend to share custom domain.). If u don't have a custom domain just share `your-appurl/public` with anyone.
-- Maybe unstable and maybe got some serious bugs rn. Wait until at least version 0.2.5 for stable update.
 
-## Features
+- We do not recommend to share your `upty-x-random.deta.app` with anyone. Share your custom domain.
+- You have to use `upty-x-random.deta.app` to add/delete your monitors.
+- You can share `upty-x-random.deta.app/public`(not recommended) or `your-custom-domain.tld/public`.
+- Still under development, Wait until atleast 0.5.0 for stable release.
 
-- Public page (`your-public-domain/`, `your-appurl/public`*)
-- No verificaton
-- Public API
-- Open source
-- Discord webhook for notifications.
+## Key features
 
-* Not recommeded.
+- Public page.
+- More details about your page/url/ip.
+- Supports IPs.
+- No verificaton.
+- Public API.
+- Open source.
+- Discord notifications.
+- Dedicated timers for notifications and status checkers.
 
 ## FAQ
 
 **How things work?**
 
-Doing some magic with _deta actions_.
-(Open source, if you wanna sneakpeek)
+Sending get requests to your urls using axios on a schedule.(OSS, if you wanna sneak-peek)
 
-**How to setup?**
+**Setup?**
 
-- Install
+- Install 
 - Goto app
-- Add your monitor
-- Yay! You're live.
+- Add a moniter
+- You're live.
 
-**How can I change checking time**
+**I wanna to check my pages every 10mins.**
 
 - Goto space app settings
-- Goto actions tab
-- Change action time for your need.
+- Goto schedules tab
+- Change **checking status** time to 10mins.
 
-**Do I have API access**
+**I wanna to check my pages every 2days.**
+
+- Goto space app settings
+- Goto schedules tab
+- Change **sending alerts** time to 2days.
+
+**Is it safe to share my instance url with someone else?**
+
+No, But it's okay while u sharing `/public`. Unless page won't work.
+
+**Public api?**
 
 Yea, you can use,
-
-- `your-deta-app-url/api/getStatus` - Get status as Object
-- `your-deta-app-ur/api/getUrls` - Get your urls as Object
+ - `your-deta-app-url/api/getStatus` - Get status as Object
+ - `your-deta-app-url/api/getUrls` - Get your urls as Object
 
 ### Example request
 
@@ -105,4 +119,6 @@ curl http://your-app-url/api/getUrls
 }
 ```
 
-Copyright 2023
+By (xarzoa)[https://xat.icu].
+
+Copyright 2023.

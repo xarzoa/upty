@@ -90,17 +90,6 @@ export default function Index({ secure }) {
                         })
                       }
                     />
-                    <IconButton
-                      colorScheme="gray"
-                      aria-label="Home"
-                      size="lg"
-                      bg="gray.700"
-                      p={1}
-                      borderRadius="xl"
-                      shadow="lg"
-                      icon={<ShareIcon />}
-                      onClick={() => router.push('/public')}
-                    />
                   </HStack>
                 </Flex>
               ) : (
