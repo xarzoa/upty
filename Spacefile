@@ -7,23 +7,27 @@ micros:
     src: app
     engine: next
     primary: true
-    path: hey
+    public_routes:
+      - '/public'
+      - '/status'
+      - '/_next/*'
+      - '/api/getStatus'
+      - '/api/getUrls'
     actions:
-      - id: "alert"
-        name: "Sending alerts"
-        description: "Choose how frequently you should alerts by choosing scheduled actions time. Default is 10 minutes."
-        trigger: "schedule"
-        default_interval: "*/10 * * * *"
+      - id: 'alert'
+        name: 'Sending alerts'
+        description: 'Choose how frequently you should alerts by choosing scheduled actions time. Default is 10 minutes.'
+        trigger: 'schedule'
+        default_interval: '*/10 * * * *'
 
   - name: backend
     src: backend
     engine: nodejs16
     path: __backend
-    run: "node ."
+    run: 'node .'
     actions:
-      - id: "statusCheck"
-        name: "Checking status"
-        description: "Choose how frequently ur pages should check by choosing scheduled actions time. Default is 10 minutes."
-        trigger: "schedule"
-        default_interval: "*/10 * * * *"
-
+      - id: 'statusCheck'
+        name: 'Checking status'
+        description: 'Choose how frequently ur pages should check by choosing scheduled actions time. Default is 10 minutes.'
+        trigger: 'schedule'
+        default_interval: '*/10 * * * *'
