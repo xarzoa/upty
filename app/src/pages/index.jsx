@@ -22,7 +22,7 @@ import {
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 
-export default function Index() {
+export default function Index({ secure }) {
   const fetcher = (url) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR('/api/getStatus', fetcher);
   const toast = useToast();
@@ -39,69 +39,73 @@ export default function Index() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="min-h-screen w-screen">
+      <div className={`min-h-screen w-screen ${secure ? '' : 'grid place-items-center'}`}>
         {!isLoading ? (
           <Container centerContent="true" maxH="100%" p={4}>
             <VStack spacing={2} align="stretch" w="100%">
-              <Flex minWidth="max-content" alignItems="center" gap="2">
-                <HStack>
-                  <IconButton
-                    colorScheme="gray"
-                    aria-label="Home"
-                    size="lg"
-                    bg="gray.700"
-                    p={1}
-                    borderRadius="xl"
-                    shadow="lg"
-                    icon={<SettingsIcon />}
-                    onClick={() => router.push('/dashboard')}
-                  />
-                  <IconButton
-                    colorScheme="gray"
-                    aria-label="Home"
-                    size="lg"
-                    bg="gray.700"
-                    p={1}
-                    borderRadius="xl"
-                    shadow="lg"
-                    icon={<ArrowPath />}
-                    onClick={() => router.refresh()}
-                  />
-                </HStack>
-                <Spacer />
-                <HStack>
-                  <IconButton
-                    colorScheme="gray"
-                    aria-label="Home"
-                    size="lg"
-                    p={1}
-                    bg="gray.700"
-                    borderRadius="xl"
-                    shadow="lg"
-                    icon={<ClockIcon />}
-                    onClick={() =>
-                      toast({
-                        title: 'Info',
-                        description: 'History will available in soon..',
-                        status: 'success',
-                        position: 'bottom-left',
-                        isClosable: true,
-                      })
-                    }
-                  />
-                  <IconButton
-                    colorScheme="gray"
-                    aria-label="Home"
-                    size="lg"
-                    bg="gray.700"
-                    p={1}
-                    borderRadius="xl"
-                    shadow="lg"
-                    icon={<ShareIcon />}
-                    onClick={() => router.push('/public')}
-                  />
-                </HStack>
-              </Flex>
+              {secure ? (
+                <Flex minWidth="max-content" alignItems="center" gap="2">
+                  <HStack>
+                    <IconButton
+                      colorScheme="gray"
+                      aria-label="Home"
+                      size="lg"
+                      bg="gray.700"
+                      p={1}
+                      borderRadius="xl"
+                      shadow="lg"
+                      icon={<SettingsIcon />}
+                      onClick={() => router.push('/dashboard')}
+                    />
+                    <IconButton
+                      colorScheme="gray"
+                      aria-label="Home"
+                      size="lg"
+                      bg="gray.700"
+                      p={1}
+                      borderRadius="xl"
+                      shadow="lg"
+                      icon={<ArrowPath />}
+                      onClick={() => router.refresh()}
+                    />
+                  </HStack>
+                  <Spacer />
+                  <HStack>
+                    <IconButton
+                      colorScheme="gray"
+                      aria-label="Home"
+                      size="lg"
+                      p={1}
+                      bg="gray.700"
+                      borderRadius="xl"
+                      shadow="lg"
+                      icon={<ClockIcon />}
+                      onClick={() =>
+                        toast({
+                          title: 'Info',
+                          description: 'History will available in soon..',
+                          status: 'success',
+                          position: 'bottom-left',
+                          isClosable: true,
+                        })
+                      }
+                    />
+                    <IconButton
+                      colorScheme="gray"
+                      aria-label="Home"
+                      size="lg"
+                      bg="gray.700"
+                      p={1}
+                      borderRadius="xl"
+                      shadow="lg"
+                      icon={<ShareIcon />}
+                      onClick={() => router.push('/public')}
+                    />
+                  </HStack>
+                </Flex>
+              ) : (
+                ''
+              )}
               {data.status[0] ? (
                 data.status.map((status, i) => (
                   <Status status={status} key={i} />
@@ -134,4 +138,14 @@ export default function Index() {
       </div>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  const secure =
+    context.req.headers.host === process.env.DETA_SPACE_APP_HOSTNAME;
+  return {
+    props: {
+      secure: secure,
+    },
+  };
 }

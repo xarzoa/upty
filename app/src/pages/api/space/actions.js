@@ -16,7 +16,7 @@ async function sendNotifications() {
       footer: {
         text: `Last checked @ ${date.toLocaleDateString()} ${date.toLocaleTimeString()}`,
       },
-      url: `https://${process.env.DETA_SPACE_APP_HOSTNAME}`,
+      url: 'https://deta.space/',
       color: 16711680,
     };
     try {
