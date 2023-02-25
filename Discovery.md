@@ -3,23 +3,27 @@ title: "Upty: The uptime monitor"
 tagline: "Uptime monitor for detonions."
 theme_color: "#000"
 git: "https://github.com/xarzoa/upty"
-homepage: "https://upty.xat.icu/public"
+homepage: "https://upty.xat.icu/"
 ---
 
 Uptime monitor, Made for **Detonions**, Made on **Deta**.
 
 🍻**Shipathon winner** for **best app icon**.
 
-**Note**
-Maybe unstable and maybe got some serious bugs rn. Wait until at least version 0.2.5 for stable update.
+**Notes**
+
+- Don't share your space app url with anyone. (We highly recommend to share custom domain.). If u don't have a custom domain just share `your-appurl/public` with anyone.
+- Maybe unstable and maybe got some serious bugs rn. Wait until at least version 0.2.5 for stable update.
 
 ## Features
 
-- Public page (`your-app-url/public`)
+- Public page (`your-public-domain/`, `your-appurl/public`*)
 - No verificaton
 - Public API
 - Open source
-- Notifications (Soon)
+- Discord webhook for notifications.
+
+* Not recommeded.
 
 ## FAQ
 
