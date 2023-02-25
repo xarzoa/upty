@@ -8,7 +8,6 @@ micros:
     engine: next
     primary: true
     path: hey
-    public_routes:
     actions:
       - id: "alert"
         name: "Sending alerts"
