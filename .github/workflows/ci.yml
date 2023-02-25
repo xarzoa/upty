@@ -1,4 +1,4 @@
-name: Space push
+name: SpacePush
 on: [push]
 env: 
   SPACE_ACCESS_TOKEN: ${{ inputs.SPACE_SECRET }}
