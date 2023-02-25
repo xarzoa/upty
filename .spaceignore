@@ -1,3 +1,5 @@
-.next
-.env
-.env
+app/.next
+app/.env
+backend/.env
+public/.env
+public/.next
