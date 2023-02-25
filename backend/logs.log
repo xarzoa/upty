@@ -1,0 +1,286 @@
+{
+  status: 200,
+  statusText: 'OK',
+  headers: AxiosHeaders {
+    'x-cloud-trace-context': '091103671115aa6466c64130628a9f45',
+    server: 'Google Frontend',
+    date: 'Sat, 18 Feb 2023 12:16:01 GMT',
+    expires: 'Sat, 18 Feb 2023 12:26:01 GMT',
+    'cache-control': 'public, max-age=600',
+    age: '241',
+    etag: '"7cVmZQ"',
+    'content-type': 'text/html',
+    connection: 'close',
+    'transfer-encoding': 'chunked'
+  },
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    },
+    adapter: [ 'xhr', 'http' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 0,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function], Blob: null },
+    validateStatus: false,
+    headers: AxiosHeaders {
+      Accept: 'application/json, text/plain, */*',
+      'User-Agent': 'axios/1.3.2',
+      'Accept-Encoding': 'gzip, compress, deflate, br'
+    },
+    method: 'get',
+    url: 'http://hello.com',
+    data: undefined
+  },
+  request: <ref *1> ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [Function (anonymous)],
+      aborted: [Function (anonymous)],
+      connect: [Function (anonymous)],
+      error: [Function (anonymous)],
+      socket: [Function (anonymous)],
+      timeout: [Function (anonymous)],
+      prefinish: [Function: requestOnPrefinish]
+    },
+    _eventsCount: 7,
+    _maxListeners: undefined,
+    outputData: [],
+    outputSize: 0,
+    writable: true,
+    destroyed: true,
+    _last: true,
+    chunkedEncoding: false,
+    shouldKeepAlive: false,
+    maxRequestsOnConnectionReached: false,
+    _defaultKeepAlive: true,
+    useChunkedEncodingByDefault: false,
+    sendDate: false,
+    _removedConnection: false,
+    _removedContLen: false,
+    _removedTE: false,
+    _contentLength: 0,
+    _hasBody: true,
+    _trailer: '',
+    finished: true,
+    _headerSent: true,
+    _closed: true,
+    socket: TLSSocket {
+      _tlsOptions: [Object],
+      _secureEstablished: true,
+      _securePending: false,
+      _newSessionPending: false,
+      _controlReleased: true,
+      secureConnecting: false,
+      _SNICallback: null,
+      servername: 'hello.com',
+      alpnProtocol: false,
+      authorized: true,
+      authorizationError: null,
+      encrypted: true,
+      _events: [Object: null prototype],
+      _eventsCount: 9,
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: 'hello.com',
+      _readableState: [ReadableState],
+      _maxListeners: undefined,
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: undefined,
+      _server: null,
+      ssl: null,
+      _requestCert: true,
+      _rejectUnauthorized: true,
+      parser: null,
+      _httpMessage: [Circular *1],
+      [Symbol(res)]: null,
+      [Symbol(verified)]: true,
+      [Symbol(pendingSession)]: null,
+      [Symbol(async_id_symbol)]: 297,
+      [Symbol(kHandle)]: null,
+      [Symbol(lastWriteQueueSize)]: 0,
+      [Symbol(timeout)]: null,
+      [Symbol(kBuffer)]: null,
+      [Symbol(kBufferCb)]: null,
+      [Symbol(kBufferGen)]: null,
+      [Symbol(kCapture)]: false,
+      [Symbol(kSetNoDelay)]: false,
+      [Symbol(kSetKeepAlive)]: true,
+      [Symbol(kSetKeepAliveInitialDelay)]: 60,
+      [Symbol(kBytesRead)]: 1355,
+      [Symbol(kBytesWritten)]: 168,
+      [Symbol(connect-options)]: [Object],
+      [Symbol(RequestTimeout)]: undefined
+    },
+    _header: 'GET / HTTP/1.1\r\n' +
+      'Accept: application/json, text/plain, */*\r\n' +
+      'User-Agent: axios/1.3.2\r\n' +
+      'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+      'Host: hello.com\r\n' +
+      'Connection: close\r\n' +
+      '\r\n',
+    _keepAliveTimeout: 0,
+    _onPendingData: [Function: nop],
+    agent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      defaultPort: 443,
+      protocol: 'https:',
+      options: [Object: null prototype],
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype] {},
+      freeSockets: [Object: null prototype] {},
+      keepAliveMsecs: 1000,
+      keepAlive: false,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 0,
+      maxCachedSessions: 100,
+      _sessionCache: [Object],
+      [Symbol(kCapture)]: false
+    },
+    socketPath: undefined,
+    method: 'GET',
+    maxHeaderSize: undefined,
+    insecureHTTPParser: undefined,
+    path: '/',
+    _ended: true,
+    res: IncomingMessage {
+      _readableState: [ReadableState],
+      _events: [Object: null prototype],
+      _eventsCount: 4,
+      _maxListeners: undefined,
+      socket: [TLSSocket],
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [Array],
+      rawTrailers: [],
+      aborted: false,
+      upgrade: false,
+      url: '',
+      method: null,
+      statusCode: 200,
+      statusMessage: 'OK',
+      client: [TLSSocket],
+      _consuming: true,
+      _dumped: false,
+      req: [Circular *1],
+      responseUrl: 'https://hello.com/',
+      redirects: [],
+      [Symbol(kCapture)]: false,
+      [Symbol(kHeaders)]: [Object],
+      [Symbol(kHeadersCount)]: 22,
+      [Symbol(kTrailers)]: null,
+      [Symbol(kTrailersCount)]: 0,
+      [Symbol(RequestTimeout)]: undefined
+    },
+    aborted: false,
+    timeoutCb: null,
+    upgradeOrConnect: false,
+    parser: null,
+    maxHeadersCount: null,
+    reusedSocket: false,
+    host: 'hello.com',
+    protocol: 'https:',
+    _redirectable: Writable {
+      _writableState: [WritableState],
+      _events: [Object: null prototype],
+      _eventsCount: 3,
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: true,
+      _ending: true,
+      _redirectCount: 1,
+      _redirects: [],
+      _requestBodyLength: 0,
+      _requestBodyBuffers: [],
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [Circular *1],
+      _currentUrl: 'https://hello.com/',
+      _isRedirect: true,
+      [Symbol(kCapture)]: false
+    },
+    [Symbol(kCapture)]: false,
+    [Symbol(kNeedDrain)]: false,
+    [Symbol(corked)]: 0,
+    [Symbol(kOutHeaders)]: [Object: null prototype] {
+      accept: [Array],
+      'user-agent': [Array],
+      'accept-encoding': [Array],
+      host: [Array]
+    }
+  },
+  data: '<!doctype html>\n' +
+    '<html lang="en-us">\n' +
+    '<head>\n' +
+    '  <meta charset="UTF-8">\n' +
+    '  <meta name="apple-mobile-web-app-capable" content="yes">\n' +
+    '  <meta name="apple-mobile-web-app-status-bar-style" content="black">\n' +
+    '  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">\n' +
+    '  <meta name="Author" content="Hello Network, Inc.">\n' +
+    '  <meta name="Keywords" content="">\n' +
+    '  <title>hello network</title>\n' +
+    '  <link rel="icon" type="image/png"  href="/img/favicon.png">\n' +
+    '  <link rel="stylesheet" href="/css/style-01.css">\n' +
+    '\n' +
+    '  <script type="text/javascript" src="/js/pingdom.js"></script>\n' +
+    '  <script type="text/javascript" src="/js/analytics.js"></script>\n' +
+    '</head>\n' +
+    '\n' +
+    '<body>\n' +
+    '\n' +
+    '  <div id="header">\n' +
+    '    <img class="banner_img" src="/img/hello-logo.png">\n' +
+    '  </div>\n' +
+    '\n' +
+    '  <div id="nav_bar">\n' +
+    '    <div id="language">\n' +
+    '      <div class="lang_label">languages:</div>\n' +
+    '      <div class="lang_link">\n' +
+    '        <a href="/index.html" class="active">English</a>\n' +
+    '      </div>\n' +
+    '      <div class="lang_link">\n' +
+    '        <a href="/index_pt.html">Português</a>\n' +
+    '      </div>\n' +
+    '    </div>\n' +
+    '  </div>\n' +
+    '\n' +
+    '  <div id="main">\n' +
+    '    <div class="paper">\n' +
+    '\n' +
+    '      <p>It’s not goodbye. It’s see you again soon.</p>\n' +
+    '      <p>We are pausing hello while we get ready to launch something even better. We have loved having you a part of this community, and we want to thank you for all you have done to make hello a special place. Thank you for being you.</p>\n' +
+    '\n' +
+    '      <p>👋 hello team</p>\n' +
+    '\n' +
+    '      <br>\n' +
+    '\n' +
+    '      <p>Please enter your email below to be the first one to hear about our upcoming launch.</p>\n' +
+    '\n' +
+    '      <form method="POST" name="f" action="/submit">\n' +
+    '        <input type="text" name="e" size="30" class="textbox" ID="email">\n' +
+    '        <input type="hidden" name="l" value="en">\n' +
+    '        <input type="submit" value="submit">\n' +
+    '      </form>\n' +
+    '\n' +
+    '    </div>\n' +
+    '  </div>\n' +
+    '\n' +
+    '</body>\n' +
+    '</html>\n'
+}

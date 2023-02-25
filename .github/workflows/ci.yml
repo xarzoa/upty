@@ -1,0 +1,20 @@
+name: Space push
+on: [push]
+jobs:
+  deploy:
+      name: Push to space
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - id: create_space
+          run: mkdir .space
+        - id: add_meta
+          run: curl ${{ secrets.SPACE_FILE }} -o meta
+        - id: go-back
+          run: cd ..
+        - id: space_cli
+          run: curl -fsSL https://get.deta.dev/space-cli.sh | sh
+        - id: space_login
+          run: space login \ ${{ secrets.SPACE_SECRET }}
+        - id: deploy
+          run: space push

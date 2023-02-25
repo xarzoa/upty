@@ -1,0 +1,33 @@
+# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
+v: 0
+app_name: Upty
+icon: app/public/logo.png
+micros:
+  - name: app
+    src: app
+    engine: next
+    primary: true
+    public_routes:
+      - "/_next/*"
+      - "/public"
+      - "/status"
+      - "/api/*"
+    actions:
+      - id: "alert"
+        name: "Sending alerts"
+        description: "Choose how frequently you should alerts by choosing scheduled actions time. Default is 10 minutes."
+        trigger: "schedule"
+        default_interval: "*/10 * * * *"
+
+  - name: backend
+    src: backend
+    engine: nodejs16
+    path: __backend
+    run: "node ."
+    actions:
+      - id: "statusCheck"
+        name: "Checking status"
+        description: "Choose how frequently ur pages should check by choosing scheduled actions time. Default is 10 minutes."
+        trigger: "schedule"
+        default_interval: "*/10 * * * *"
+
