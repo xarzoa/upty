@@ -89,6 +89,13 @@ export default function Dashboard() {
       }
       setUrl('');
       setName('');
+      fetch('/__backend/__space/v0/actions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: 'hello',
+      })
     } else {
       setError(true);
       toast({

@@ -2,6 +2,7 @@
 title: "Upty: The uptime monitor"
 tagline: "Uptime monitor for detonions."
 theme_color: "#000"
+git: "https://github.com/xarzoa/upty"
 homepage: "https://upty.xat.icu/public"
 ---
 
