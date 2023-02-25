@@ -14,6 +14,8 @@ jobs:
           run: cd ..
         - id: space_cli
           run: curl -fsSL https://get.deta.dev/space-cli.sh | sh
+        - id: add_cli_path
+          run: export PATH="/home/runner/.detaspace/bin:$PATH"
         - id: space_login
           run: space login \ ${{ secrets.SPACE_SECRET }}
         - id: deploy
