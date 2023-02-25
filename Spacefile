@@ -16,10 +16,9 @@ micros:
         trigger: "schedule"
         default_interval: "*/10 * * * *"
 
-  - name: app
-    src: app
+  - name: public
+    src: public
     engine: next
-    primary: true
     public_routes:
       - "/_next/*"
       - "/"
