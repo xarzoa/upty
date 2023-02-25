@@ -7,15 +7,22 @@ micros:
     src: app
     engine: next
     primary: true
+    path: hey
     public_routes:
-      - "/_next/*"
-      - "/"
     actions:
       - id: "alert"
         name: "Sending alerts"
         description: "Choose how frequently you should alerts by choosing scheduled actions time. Default is 10 minutes."
         trigger: "schedule"
         default_interval: "*/10 * * * *"
+
+  - name: app
+    src: app
+    engine: next
+    primary: true
+    public_routes:
+      - "/_next/*"
+      - "/"
 
   - name: backend
     src: backend

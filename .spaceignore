@@ -1,3 +1,3 @@
-app/.next
-app/.env
-backend/.env
+.next
+.env
+.env

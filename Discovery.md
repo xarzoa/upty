@@ -12,18 +12,16 @@ Uptime monitor, Made for **Detonions**, Made on **Deta**.
 
 **Notes**
 
-- Don't share your space app url with anyone. (We highly recommend to share custom domain.). If u don't have a custom domain just share `your-appurl/public` with anyone.
+- We recommend not to share your `upty-x-random.deta.app` with anyone. Share ur custom domain.
 - Maybe unstable and maybe got some serious bugs rn. Wait until at least version 0.2.5 for stable update.
 
 ## Features
 
-- Public page (`your-public-domain/`, `your-appurl/public`*)
+- Public page (`your-appurl/public`)
 - No verificaton
 - Public API
 - Open source
 - Discord webhook for notifications.
-
-* Not recommeded.
 
 ## FAQ
 
