@@ -18,5 +18,7 @@ jobs:
           run: |
             curl -fsSL https://get.deta.dev/space-cli.sh | sh
             echo "SPACE_ACCESS_TOKEN=${{ inputs.SPACE_SECRET }}" >> $GITHUB_ENV
+        - id: dir
+          run: ls
         - id: deploy
           run: /home/runner/.detaspace/bin/space push
