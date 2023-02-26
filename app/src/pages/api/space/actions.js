@@ -1,4 +1,4 @@
-import { getSettings, addSettings } from '@lib/deta';
+import { getSettings, addSettings } from '@lib/db';
 import axios from 'axios';
 
 async function sendNotifications() {

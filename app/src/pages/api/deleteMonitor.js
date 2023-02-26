@@ -1,4 +1,4 @@
-import { deleteUrl } from '@lib/deta';
+import { deleteUrl } from '@lib/db';
 
 export default async function handler(req, res) {
   if (req.method === 'DELETE') {

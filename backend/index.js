@@ -8,7 +8,7 @@ const PORT = 8080;
 const app = express();
 app.use(express.json())
 
-const deta = Deta(process.env.DETA_KEY);
+const deta = Deta(process.env.DETA_PROJECT_KEY);
 
 const urls = deta.Base('urls');
 const status = deta.Base('status');

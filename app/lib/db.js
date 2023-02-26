@@ -1,7 +1,7 @@
 import { Deta } from 'deta';
 import { v4 as uuid } from 'uuid';
 
-const deta = Deta(process.env.DETA_KEY);
+const deta = Deta(process.env.DETA_PROJECT_KEY);
 
 const urls = deta.Base('urls');
 const status = deta.Base('status');
@@ -54,21 +54,5 @@ async function updateSettings(setting, data) {
   );
 }
 
-async function updateStatus(res,key){
-  const date = new Date()
-  await status.update(
-    {
-      status: res.status,
-      protocol: res.request.protocol.split(':')[0].toUpperCase(),
-      server: res.headers.server,
-      encrypted_socket: res.request.socket.encrypted,
-      code: res.status,
-      checked_method: res.config.method.toUpperCase(),
-      message: res.statusText,
-      last_checked: date,
-    },
-    `${key}`
-  );
-}
 
-export { addURL, getURLs, getStatus, deleteUrl, updateSettings, getSettings, updateStatus, addSettings };
+export { addURL, getURLs, getStatus, deleteUrl, updateSettings, getSettings, addSettings };
