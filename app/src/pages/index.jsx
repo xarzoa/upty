@@ -45,10 +45,6 @@ export default function Index() {
         {!isLoading ? (
           <Container centerContent="true" maxH="100%" p={4}>
             <VStack spacing={2} align="stretch" w="100%">
-              <Alert status="info" borderRadius="xl">
-                <AlertIcon />
-                Don't share this URL with anyone.
-              </Alert>
               <Flex minWidth="max-content" alignItems="center" gap="2">
                 <HStack>
                   <IconButton
@@ -97,6 +93,10 @@ export default function Index() {
                   />
                 </HStack>
               </Flex>
+              <Alert status="info" borderRadius="xl">
+                <AlertIcon />
+                Don't share this page with anyone.
+              </Alert>
               {data.status[0] ? (
                 data.status.map((status, i) => (
                   <Status status={status} key={i} />

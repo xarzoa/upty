@@ -177,10 +177,6 @@ export default function Dashboard() {
       <div className="min-h-screen w-screen">
         <Container centerContent="true" maxH="100%" p={4}>
           <VStack align="stretch" w="100%">
-            <Alert status="info" borderRadius="xl">
-              <AlertIcon />
-              Don't share this page with anyone.
-            </Alert>
             <Flex minWidth="max-content" alignItems="center" gap="2">
               <IconButton
                 colorScheme="gray"
@@ -227,6 +223,10 @@ export default function Dashboard() {
                 />
               </HStack>
             </Flex>
+            <Alert status="info" borderRadius="xl">
+              <AlertIcon />
+              Don't share this page with anyone.
+            </Alert>
             <Card borderRadius="xl">
               <CardBody>
                 <Heading size="md">Add monitor</Heading>
