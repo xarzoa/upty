@@ -177,7 +177,7 @@ export default function Dashboard() {
       <div className="min-h-screen w-screen">
         <Container centerContent="true" maxH="100%" p={4}>
           <VStack align="stretch" w="100%">
-            <Alert status="info">
+            <Alert status="info" borderRadius="xl">
               <AlertIcon />
               Don't share this page with anyone.
             </Alert>
