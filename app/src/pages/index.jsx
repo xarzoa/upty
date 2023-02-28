@@ -41,11 +41,7 @@ export default function Index() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div
-        className={`min-h-screen w-screen ${
-          secure ? '' : 'grid place-items-center'
-        }`}
-      >
+      <div className="min-h-screen w-screen">
         {!isLoading ? (
           <Container centerContent="true" maxH="100%" p={4}>
             <VStack spacing={2} align="stretch" w="100%">
