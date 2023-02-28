@@ -177,6 +177,10 @@ export default function Dashboard() {
       <div className="min-h-screen w-screen">
         <Container centerContent="true" maxH="100%" p={4}>
           <VStack align="stretch" w="100%">
+            <Alert status="info">
+              <AlertIcon />
+              Don't share this page with anyone.
+            </Alert>
             <Flex minWidth="max-content" alignItems="center" gap="2">
               <IconButton
                 colorScheme="gray"
@@ -198,7 +202,7 @@ export default function Dashboard() {
                 borderRadius="xl"
                 shadow="lg"
                 icon={<ArrowPath />}
-                onClick={() => router.refresh()}
+                onClick={() => router.reload()}
               />
               <Spacer />
               <HStack>

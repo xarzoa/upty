@@ -1,7 +1,7 @@
 import { Deta } from 'deta';
 import { v4 as uuid } from 'uuid';
 
-const deta = Deta(process.env.DETA_PROJECT_KEY);
+const deta = Deta();
 
 const urls = deta.Base('urls');
 const status = deta.Base('status');

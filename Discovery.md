@@ -12,9 +12,7 @@ Uptime monitor for **Detonions**.
 
 **Notes**
 
-- We do not recommend to share your `upty-x-random.deta.app` with anyone. Share your custom domain.
-- You have to use `upty-x-random.deta.app` to add/delete your monitors.
-- You can share `upty-x-random.deta.app/public`(not recommended) or `your-custom-domain.tld/public`.
+- If you need Public page, Goto [Upty public](/discovery/@xarzoa/status).
 - Still under development, Wait until atleast 0.5.0 for stable release.
 
 ## Key features
@@ -55,70 +53,6 @@ Sending get requests to your urls using axios on a schedule.(OSS, if you wanna s
 
 **Is it safe to share my instance url with someone else?**
 
-No, But it's okay while u sharing `/public`. Unless page won't work.
+No. Use [Upty public](/discovery/@xarzoa/status)
 
-**Public api?**
-
-Yea, you can use,
- - `your-deta-app-url/api/getStatus` - Get status as Object
- - `your-deta-app-url/api/getUrls` - Get your urls as Object
-
-### Example request
-
-```sh
-curl http://your-app-url/api/getStatus
-
-curl http://your-app-url/api/getUrls
-```
-
-### Example responce
-
-**/getStatus**
-
-```json
-{
-  "status": [
-    {
-      "added_date": "2023-02-10T13:24:52.507Z",
-      "code": 200,
-      "key": "58fd9754-34b7-461c-b0f5-8d4f3b6ea6cc",
-      "last_checked": "2023-02-12T13:34:51.981Z",
-      "message": "OK",
-      "name": "xat",
-      "status": 200,
-      "string": "https://xat.icu"
-    },
-    {
-      "added_date": "2023-02-10T20:23:55.423Z",
-      "code": 200,
-      "key": "92e47d7a-45f9-4ef5-a730-5d0b5bfe3c10",
-      "last_checked": "2023-02-12T13:34:52.264Z",
-      "message": "OK",
-      "name": "Google",
-      "status": 200,
-      "string": "https://google.com"
-    }
-  ]
-}
-```
-
-**/getUrls**
-
-```json
-{
-  "urls": [
-    {
-      "key": "58fd9754-34b7-461c-b0f5-8d4f3b6ea6cc",
-      "name": "xat",
-      "string": "https://xat.icu"
-    },
-    {
-      "key": "92e47d7a-45f9-4ef5-a730-5d0b5bfe3c10",
-      "name": "Google",
-      "string": "https://google.com"
-    }
-  ]
-}
-```
-
-By (xarzoa)[https://xat.icu].
+By [xarzoa](https://xat.icu).

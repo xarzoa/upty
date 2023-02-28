@@ -7,12 +7,6 @@ micros:
     src: app
     engine: next
     primary: true
-    public_routes:
-      - '/public'
-      - '/status'
-      - '/_next/*'
-      - '/api/getStatus'
-      - '/api/getUrls'
     actions:
       - id: 'alert'
         name: 'Sending alerts'

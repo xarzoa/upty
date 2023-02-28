@@ -8,7 +8,7 @@ const PORT = 8080;
 const app = express();
 app.use(express.json())
 
-const deta = Deta(process.env.DETA_PROJECT_KEY);
+const deta = Deta();
 
 const urls = deta.Base('urls');
 const status = deta.Base('status');
@@ -63,7 +63,6 @@ async function checkStatus() {
       const startTime = Date.now()
       const res = await axios.get(urls[i].string, { validateStatus: false });
       const calcTime = Date.now() - startTime
-      console.log(calcTime)
       const date = new Date()
       await status.update(
         {
@@ -100,7 +99,5 @@ async function checkStatus() {
     console.log(`No monitors!`);
   }
 }
-
-checkStatus()
 
 app.listen(PORT);
