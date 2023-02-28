@@ -10,7 +10,7 @@ Uptime monitor for **Detonions**.
 
 **Notes**
 
-- If you need Public page, Goto [Upty public](/discovery/@xarzoa/status).
+- If you need Public page, Goto [Upty public](https://deta.space/discovery/@xarzoa/status).
 - Still under development, Wait until atleast 0.5.0 for stable release.
 
 ## Key features
@@ -51,7 +51,7 @@ Sending get requests to your urls using axios on a schedule.(OSS, if you wanna s
 
 **Is it safe to share my instance url with someone else?**
 
-No. Use [Upty public](/discovery/@xarzoa/status)
+No. Use [Upty public](https://deta.space/discovery/@xarzoa/status)
 
 By [xarzoa](https://xat.icu).
 
