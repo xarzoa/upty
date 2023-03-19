@@ -11,8 +11,8 @@ async function getMonitors() {
   return items;
 }
 
-async function updateMonitor(id, down){
-  await monitors.update({ down: down}, id)
+async function updateMonitor( key, down ){
+  await monitors.update({ down: down}, key)
 }
 
 async function updateStatus(data, key){

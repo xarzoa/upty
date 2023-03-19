@@ -28,6 +28,7 @@ async function checkStatus() {
         } else {
           await updateMonitor(monitors[i].key, false);
         }
+        
         console.log(
           `Checked "${
             monitors[i].url
