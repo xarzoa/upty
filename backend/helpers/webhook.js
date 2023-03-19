@@ -7,11 +7,14 @@ async function sendNotifications(){
   if (monitors[0]) {
     for (let i = 0; i < monitors.length; i++) {
       try {
-        if (monitors[i].webhook, monitors[i].url, monitors[i].down) {
+        if (monitors[i].webhook && monitors[i].url && monitors[i].down) {
           const embeds = {
             title: `:red_square: ${monitors[i].name} **down**.`,
             description: `Your monitor your ${monitors[i].url} went down.`,
-            fields: [monitors[i].url],
+            fields: [{
+              "name": `${monitors[i].name} is down!`,
+              "value": `\`${monitors[i].url}\` has returned some error!`
+            }],
             footer: {
               text: `Last checked @ ${date.toLocaleDateString()} ${date.toLocaleTimeString()}`,
             },
@@ -30,7 +33,7 @@ async function sendNotifications(){
               { headers: 'application/json' }
             );
           } catch (e) {
-            console.log(e.message);
+            console.log(e);
           }
         }
         console.log(
