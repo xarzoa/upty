@@ -22,6 +22,7 @@ Uptime monitor for **Detonions**.
 - Public API.
 - Open source.
 - Discord notifications.
+- Dedicated webhook support.
 - Dedicated timers for notifications and status checkers.
 
 ## FAQ

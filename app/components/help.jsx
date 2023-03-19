@@ -60,7 +60,7 @@ export default function Notifications({ dest }) {
               m={2}
               bg="#DA552F"
               icon={<ProductHuntIcon />}
-              onClick={() => location.href = 'https://producthunt.com/post/upty'}
+              onClick={() => location.href = 'https://producthunt.com/product/upty'}
             />
             <IconButton
               size="lg"

@@ -17,13 +17,14 @@ Uptime monitor for **Detonions**.
 
 ## Key features
 
-- Public page.
+- Public page. (Seperated app)
 - More details about your page/url/ip.
 - Supports IPs.
 - No verificaton.
 - Public API.
 - Open source.
 - Discord notifications.
+- Dedicated webhook support.
 - Dedicated timers for notifications and status checkers.
 
 ## FAQ
