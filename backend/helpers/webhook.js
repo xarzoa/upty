@@ -10,7 +10,7 @@ async function sendNotifications(){
         if (monitors[i].webhook && monitors[i].url && monitors[i].down) {
           const embeds = {
             title: `:red_square: ${monitors[i].name} **down**.`,
-            description: `Your monitor your ${monitors[i].url} went down.`,
+            description: `Your monitor ${monitors[i].url} went down.`,
             fields: [{
               "name": `${monitors[i].name} is down!`,
               "value": `\`${monitors[i].url}\` has returned some error!`

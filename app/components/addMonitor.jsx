@@ -57,6 +57,7 @@ export default function AddMonitor() {
       });
       setUrl('')
       setName('')
+      onClose()
     } else {
       toast({
         title: 'Error!',

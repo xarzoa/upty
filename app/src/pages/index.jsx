@@ -35,13 +35,13 @@ export default function Index() {
             {data.status[0] ? (
               data.status.map((status, i) => <Status status={status} key={i} />)
             ) : (
-              <Card>
+              <Card borderRadius="xl">
                 <CardBody>
                   <Container centerContent="true">
                     <Heading size="md">No monitors.</Heading>
                     <Box pt={2}>
-                      <Button onClick={() => router.push('/dashboard')}>
-                        Add something to monitor
+                      <Button onClick={() => router.push('/dashboard')} colorScheme="green">
+                        Add URL
                       </Button>
                     </Box>
                   </Container>

@@ -45,6 +45,24 @@ export default function EditMonitor() {
     favicon: '/favicon.ico',
   };
 
+  function checkURL(url) {
+    const monitorRegex = new RegExp(
+      /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/
+    );
+
+    return monitorRegex.test(url)
+  }
+
+  function checkWebhook(webhook){
+    const webhookRegex = new RegExp(/^https?:\/\/discord.com\/api\/webhooks\/([^\/]+)\/([^\/]+)/);
+
+    if(!webhook){
+      return true
+    }
+
+    return webhookRegex.test(webhook)
+  }
+
   const [ name, setName ] = useState()
   const [ url, setUrl ] = useState()
   const [ webhook, setWebhook ] = useState()
@@ -91,10 +109,9 @@ export default function EditMonitor() {
     router.push('/dashboard')
   }
 
-
   async function update(){
     setLoading(true)
-    if(!nameError, !urlError){
+    if(!nameError && !urlError && !webhookError){
       const res = await fetch('/api/updateMonitor', {
         method: 'POST',
         headers: {
@@ -120,25 +137,6 @@ export default function EditMonitor() {
     }
     setLoading(false)
   }
-
-  function checkURL(url) {
-    const monitorRegex = new RegExp(
-      /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/
-    );
-
-    return monitorRegex.test(url)
-  }
-
-  function checkWebhook(webhook){
-    const webhookRegex = new RegExp(/^.*(discord|discordapp)\.com\/api\/webhooks\/([\d]+)\/([a-z0-9_-]+)$/);
-
-    if(!webhook){
-      return true
-    }
-
-    return webhookRegex.test(webhook)
-  }
-  
 
   function handleName(e){
     setName(e.target.value)
@@ -207,7 +205,7 @@ export default function EditMonitor() {
                 <Flex>
                   <Button colorScheme="red" onClick={onOpen}>Delete</Button>
                   <Spacer />
-                  <Button colorScheme="green" onClick={update} isLoading={loading}>Update</Button>
+                  <Button colorScheme="green" onClick={update} isLoading={loading} isDisabled={nameError || urlError || webhookError}>Update</Button>
                 </Flex>
                 <Modal isOpen={isOpen} onClose={onClose}>
                   <ModalOverlay backdropFilter="blur(10px)" />
