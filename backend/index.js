@@ -6,14 +6,13 @@ const { sendNotifications } = require('./helpers/webhook')
 const PORT = 8080;
 
 const app = express();
-app.use(express.json())
 app.use(bodyParser.json())
 
 app.post('/__space/v0/actions', async (req,res) => {
 
   const event = res.body.event 
 
-  if(event === "check"){
+  if(event.id === "check"){
     try{
       await checkStatus()
       console.info("Successfully checked.")
@@ -24,7 +23,7 @@ app.post('/__space/v0/actions', async (req,res) => {
     return
   }
 
-  if(event === "notify"){
+  if(event.id === "notify"){
     try{
       await sendNotifications()
       console.info("Notified!")
