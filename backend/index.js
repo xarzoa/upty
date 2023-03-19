@@ -7,6 +7,7 @@ const PORT = 8080;
 
 const app = express();
 app.use(express.json())
+app.use(bodyParser.json())
 
 app.post('/__space/v0/actions', async (req,res) => {
 
