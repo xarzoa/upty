@@ -1,13 +1,16 @@
-import { extendTheme } from '@chakra-ui/react'
+import { extendTheme } from '@chakra-ui/react';
+
+const baseStyle = { borderRadius: 'xl' };
 
 const config = {
-  initialColorMode: 'dark',
-  useSystemColorMode: false,
-  defaultProps: {
-    borderRadius: 'xl'
+  components: {
+    Button: { baseStyle },
+    Input: { baseStyle },
+    Card: { baseStyle },
+    ModalContent: { baseStyle }
   },
-}
+};
 
-const theme = extendTheme({ config })
+const theme = extendTheme(config);
 
-export default theme
+export default theme;

@@ -3,22 +3,33 @@ import { v4 as uuid } from 'uuid';
 
 const deta = Deta();
 
-const urls = deta.Base('urls');
+const monitors = deta.Base('monitors');
 const status = deta.Base('status');
-const settings = deta.Base('settings');
 
-async function addURL(url, name) {
-  const id = uuid(url);
-  await urls.put({ string: url, name: name }, `${id}`);
+async function addMonitor(data) {
+  const id = uuid(data.url);
+  await monitors.put({ url: data.url, name: data.name }, `${id}`);
   await status.put(
-    { string: url, name: name, added_date: new Date() },
+    { url: data.url, name: data.name, added_date: new Date() },
     `${id}`
   );
 }
 
-async function getURLs() {
-  const { items } = await urls.fetch();
+async function getMonitors() {
+  const { items } = await monitors.fetch();
   return items;
+}
+
+async function updateMonitor(data,key){
+  await monitors.update(
+    {
+      name: data.name,
+      url: data.url,
+      webhook: data.webhook,
+      updated_date: new Date(),
+    },
+    key
+  );
 }
 
 async function getStatus() {
@@ -26,33 +37,15 @@ async function getStatus() {
   return items;
 }
 
-async function deleteUrl(id) {
-  await urls.delete(id);
+async function deleteMonitor(id) {
+  await monitors.delete(id);
   await status.delete(id);
 }
 
-async function addSettings() {
-  await settings.put({ created_date: new Date() }, 'settings');
-}
-
-async function getSettings() {
-  const settingsData = await settings.get('settings');
-  return settingsData;
-}
-
-async function updateSettings(setting, data) {
-  const userSettings = await getSettings();
-  if(!userSettings){
-    await addSettings()
-  }
-  await settings.update(
-    {
-      [setting]: data,
-      updated_date: new Date(),
-    },
-    'settings'
-  );
+async function getMonitor(id){
+  const data = await monitors.get(id)
+  return data
 }
 
 
-export { addURL, getURLs, getStatus, deleteUrl, updateSettings, getSettings, addSettings };
+export { addMonitor, getMonitors, getStatus, deleteMonitor, getMonitor, updateMonitor };

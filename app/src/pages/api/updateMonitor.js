@@ -1,10 +1,10 @@
-import { updateSettings } from '@lib/db';
+import { updateMonitor } from '@lib/db';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    await updateSettings(req.body.name, req.body.data);
+    await updateMonitor({ name: req.body.name, url: req.body.url, webhook: req.body.webhook },req.body.key );
     res.status(200).json({
-      message: 'Settings updated successfully!',
+      message: 'Monitor updated successfully!',
     });
   } else {
     res.status(502).json({

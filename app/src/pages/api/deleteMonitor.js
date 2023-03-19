@@ -1,10 +1,10 @@
-import { deleteUrl } from '@lib/db';
+import { deleteMonitor } from '@lib/db';
 
 export default async function handler(req, res) {
   if (req.method === 'DELETE') {
-    await deleteUrl(req.body.id);
+    await deleteMonitor(req.body.id);
     res.status(200).json({
-      message: 'URL deleted successfully!',
+      message: 'Monitor deleted successfully!',
     });
   } else {
     res.status(502).json({

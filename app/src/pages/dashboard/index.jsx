@@ -1,26 +1,46 @@
-import useSWR from 'swr';
 import Head from '@components/head';
 import Header from '@components/header';
-import Status from '@components/status';
+import AddMonitor from '@components/addMonitor';
+import Monitor from '@components/monitor';
 import {
   AbsoluteCenter,
+  Input,
+  Button,
+  Box,
   Container,
   VStack,
-  Heading,
-  Button,
+  HStack,
   Card,
   CardBody,
-  Box,
+  Heading,
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+  useToast,
+  Alert,
+  AlertIcon,
+  Divider,
+  IconButton,
   Spinner,
   Flex,
   Spacer,
+  useDisclosure
 } from '@chakra-ui/react';
+import { useState, useEffect } from 'react';
+import useSWR from 'swr';
 
-export default function Index() {
+export default function Dashboard() {
   const fetcher = (url) => fetch(url).then((res) => res.json());
-  const { data, error, isLoading } = useSWR('/api/getStatus', fetcher);
+  const {
+    data,
+    error: fetchError,
+    isLoading,
+  } = useSWR('/api/getMonitors', fetcher);
+  const { onOpen } = useDisclosure()
+
   const headData = {
-    title: 'Upty - A personal uptime monitor',
+    title: 'Upty - Dashboard',
     description: 'Uptime monitor for Detonions',
     favicon: '/favicon.ico',
   };
@@ -32,17 +52,15 @@ export default function Index() {
         {!isLoading ? (
           <VStack spacing={2} align="stretch" w="100%">
             <Header />
-            {data.status[0] ? (
-              data.status.map((status, i) => <Status status={status} key={i} />)
+            {data.monitors[0] ? (
+              data.monitors.map((monitor, i) => <Monitor monitor={monitor} key={i} />)
             ) : (
-              <Card>
+              <Card borderRadius="xl">
                 <CardBody>
                   <Container centerContent="true">
                     <Heading size="md">No monitors.</Heading>
-                    <Box pt={2}>
-                      <Button onClick={() => router.push('/dashboard')}>
-                        Add something to monitor
-                      </Button>
+                    <Box pt={2} textAlign="center">
+                      To add monitor click green button with plus icon in right up corner.
                     </Box>
                   </Container>
                 </CardBody>

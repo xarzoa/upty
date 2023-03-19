@@ -1,10 +1,10 @@
-import { addURL } from '@lib/db';
+import { addMonitor } from '@lib/db';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    await addURL(req.body.url, req.body.name);
+    await addMonitor({ name: req.body.name, url: req.body.url });
     res.status(200).json({
-      message: 'URL added successfully!',
+      message: 'Monitor added successfully!',
     });
   } else {
     res.status(502).json({

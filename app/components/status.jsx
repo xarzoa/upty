@@ -1,5 +1,5 @@
-import CheckIcon from '@components/icons/checkIcon';
-import XCircleIcon from '@components/icons/xCircleIcon';
+import CheckIcon from '@components/icons/check';
+import XCircleIcon from '@components/icons/xCircle';
 import {
   Container,
   VStack,
@@ -37,16 +37,16 @@ export default function Status({ status }) {
           <HStack pt={4}>
             <Wrap>
               <WrapItem>
-                <Tag>{status.string}</Tag>
+                <Tag>{status.url}</Tag>
               </WrapItem>
               <WrapItem>
                 <Tag>
                   {status.checked_method}
                 </Tag>
               </WrapItem>
-              <WrapItem colorScheme="info">
-                <Tag>
-                  {status.res_time}ms
+              <WrapItem>
+                <Tag colorScheme="blue">
+                  {status.res_time? status.res_time : 'Not counted ' }ms
                 </Tag>
               </WrapItem>
               <WrapItem>

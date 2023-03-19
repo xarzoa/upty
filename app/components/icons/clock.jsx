@@ -4,7 +4,8 @@ export default function clockIcon() {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className="w-6 h-6"
+      height="1.5rem"
+      width="1.5rem"
     >
       <path
         fillRule="evenodd"
