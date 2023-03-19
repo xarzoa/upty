@@ -21,7 +21,7 @@ async function checkStatus() {
           message: res.statusText,
           last_checked: date,
           res_time: calcTime,
-        },monitors[i].key);
+        }, monitors[i].key);
 
         if (res.status > 399) {
           await updateMonitor(monitors[i].key, true);
