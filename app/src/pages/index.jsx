@@ -18,7 +18,9 @@ import {
 
 export default function Index() {
   const fetcher = (url) => fetch(url).then((res) => res.json());
-  const { data, error, isLoading } = useSWR('/api/getStatus', fetcher);
+  const { data, error, isLoading } = useSWR('/api/getStatus', fetcher, {
+    refreshInterval: 1000,
+  });
   const headData = {
     title: 'Upty - A personal uptime monitor',
     description: 'Uptime monitor for Detonions',
@@ -40,7 +42,10 @@ export default function Index() {
                   <Container centerContent="true">
                     <Heading size="md">No monitors.</Heading>
                     <Box pt={2}>
-                      <Button onClick={() => router.push('/dashboard')} colorScheme="green">
+                      <Button
+                        onClick={() => router.push('/dashboard')}
+                        colorScheme="green"
+                      >
                         Add URL
                       </Button>
                     </Box>

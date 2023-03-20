@@ -25,7 +25,7 @@ import {
   Spinner,
   Flex,
   Spacer,
-  useDisclosure
+  useDisclosure,
 } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import useSWR from 'swr';
@@ -36,8 +36,8 @@ export default function Dashboard() {
     data,
     error: fetchError,
     isLoading,
-  } = useSWR('/api/getMonitors', fetcher);
-  const { onOpen } = useDisclosure()
+  } = useSWR('/api/getMonitors', fetcher, { refreshInterval: 1000 });
+  const { onOpen } = useDisclosure();
 
   const headData = {
     title: 'Upty - Dashboard',
@@ -53,14 +53,17 @@ export default function Dashboard() {
           <VStack spacing={2} align="stretch" w="100%">
             <Header />
             {data.monitors[0] ? (
-              data.monitors.map((monitor, i) => <Monitor monitor={monitor} key={i} />)
+              data.monitors.map((monitor, i) => (
+                <Monitor monitor={monitor} key={i} />
+              ))
             ) : (
               <Card borderRadius="xl">
                 <CardBody>
                   <Container centerContent="true">
                     <Heading size="md">No monitors.</Heading>
                     <Box pt={2} textAlign="center">
-                      To add monitor click green button with plus icon in right up corner.
+                      To add monitor click green button with plus icon in right
+                      up corner.
                     </Box>
                   </Container>
                 </CardBody>

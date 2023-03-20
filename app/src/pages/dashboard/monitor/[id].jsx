@@ -29,16 +29,18 @@ import {
   ModalCloseButton,
   useDisclosure,
   Divider,
-  useToast
+  useToast,
 } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 
 export default function EditMonitor() {
   const router = useRouter();
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const { id } = router.query;
   const fetcher = (url) => fetch(url).then((res) => res.json());
-  const { data, error, isLoading } = useSWR(`/api/getMonitor/${id}`, fetcher);
+  const { data, error, isLoading } = useSWR(`/api/getMonitor/${id}`, fetcher, {
+    refreshInterval: 1000,
+  });
   const headData = {
     title: 'Upty - Edit Monitor ' + data?.key,
     description: 'Uptime monitor for Detonions',
@@ -50,45 +52,47 @@ export default function EditMonitor() {
       /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/
     );
 
-    return monitorRegex.test(url)
+    return monitorRegex.test(url);
   }
 
-  function checkWebhook(webhook){
-    const webhookRegex = new RegExp(/^https?:\/\/discord.com\/api\/webhooks\/([^\/]+)\/([^\/]+)/);
+  function checkWebhook(webhook) {
+    const webhookRegex = new RegExp(
+      /^https?:\/\/discord.com\/api\/webhooks\/([^\/]+)\/([^\/]+)/
+    );
 
-    if(!webhook){
-      return true
+    if (!webhook) {
+      return true;
     }
 
-    return webhookRegex.test(webhook)
+    return webhookRegex.test(webhook);
   }
 
-  const [ name, setName ] = useState()
-  const [ url, setUrl ] = useState()
-  const [ webhook, setWebhook ] = useState()
-  const [ loading, setLoading ] = useState()
-  const [ delLoading, setDelLoading ] = useState()
-  const nameError = name === ''
-  const urlError = !checkURL(url)
-  const webhookError = !checkWebhook(webhook)
-  const toast = useToast()
+  const [name, setName] = useState();
+  const [url, setUrl] = useState();
+  const [webhook, setWebhook] = useState();
+  const [loading, setLoading] = useState();
+  const [delLoading, setDelLoading] = useState();
+  const nameError = name === '';
+  const urlError = !checkURL(url);
+  const webhookError = !checkWebhook(webhook);
+  const toast = useToast();
 
   useEffect(() => {
-    setName(data?.monitor.name)
-    setUrl(data?.monitor.url)
-    setWebhook(data?.monitor.webhook)
-  },[data])
+    setName(data?.monitor.name);
+    setUrl(data?.monitor.url);
+    setWebhook(data?.monitor.webhook);
+  }, [data]);
 
-  async function deleteMonitor(){
-    setDelLoading(true)
-    try{
+  async function deleteMonitor() {
+    setDelLoading(true);
+    try {
       await fetch('/api/deleteMonitor', {
         method: 'DELETE',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ id: id })
-      })
+        body: JSON.stringify({ id: id }),
+      });
       toast({
         title: 'Done!',
         description: `Successfully deleted your ${id} monitor.`,
@@ -96,7 +100,7 @@ export default function EditMonitor() {
         position: 'bottom-left',
         isClosable: true,
       });
-    }catch(e){
+    } catch (e) {
       toast({
         title: 'Error!',
         description: `${e.message} happend.`,
@@ -105,19 +109,24 @@ export default function EditMonitor() {
         isClosable: true,
       });
     }
-    setDelLoading(false)
-    router.push('/dashboard')
+    setDelLoading(false);
+    router.push('/dashboard');
   }
 
-  async function update(){
-    setLoading(true)
-    if(!nameError && !urlError && !webhookError){
+  async function update() {
+    setLoading(true);
+    if (!nameError && !urlError && !webhookError) {
       const res = await fetch('/api/updateMonitor', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name: name, url: url.toLowerCase(), webhook: webhook, key: id }),
+        body: JSON.stringify({
+          name: name,
+          url: url.toLowerCase(),
+          webhook: webhook,
+          key: id,
+        }),
       });
       toast({
         title: 'Done!',
@@ -135,19 +144,19 @@ export default function EditMonitor() {
         isClosable: true,
       });
     }
-    setLoading(false)
+    setLoading(false);
   }
 
-  function handleName(e){
-    setName(e.target.value)
+  function handleName(e) {
+    setName(e.target.value);
   }
 
-  function handleUrl(e){
-    setUrl(e.target.value)
+  function handleUrl(e) {
+    setUrl(e.target.value);
   }
 
-  function handleWebhook(e){
-    setWebhook(e.target.value)
+  function handleWebhook(e) {
+    setWebhook(e.target.value);
   }
 
   return (
@@ -196,32 +205,49 @@ export default function EditMonitor() {
                     isInvalid={webhookError}
                     value={webhook}
                   />
-                  <FormHelperText>Leave it empty, if u don't wanna add webhook</FormHelperText>
+                  <FormHelperText>
+                    Leave it empty, if u don't wanna add webhook
+                  </FormHelperText>
                 </FormControl>
               </CardBody>
             </Card>
             <Card borderRadius="xl">
               <CardBody>
                 <Flex>
-                  <Button colorScheme="red" onClick={onOpen}>Delete</Button>
+                  <Button colorScheme="red" onClick={onOpen}>
+                    Delete
+                  </Button>
                   <Spacer />
-                  <Button colorScheme="green" onClick={update} isLoading={loading} isDisabled={nameError || urlError || webhookError}>Update</Button>
+                  <Button
+                    colorScheme="green"
+                    onClick={update}
+                    isLoading={loading}
+                    isDisabled={nameError || urlError || webhookError}
+                  >
+                    Update
+                  </Button>
                 </Flex>
                 <Modal isOpen={isOpen} onClose={onClose}>
                   <ModalOverlay backdropFilter="blur(10px)" />
                   <ModalContent borderRadius="xl">
                     <ModalHeader>Confirm</ModalHeader>
-                    <ModalCloseButton borderRadius="xl"/>
+                    <ModalCloseButton borderRadius="xl" />
                     <Divider />
                     <ModalBody>
-                      Do you really want to delete <b>{data.monitor.key}</b> monitor ?
+                      Do you really want to delete <b>{data.monitor.key}</b>{' '}
+                      monitor ?
                     </ModalBody>
                     <Divider />
                     <ModalFooter>
                       <Button colorScheme="green" onClick={onClose}>
                         No
                       </Button>
-                      <Button colorScheme="red" onClick={deleteMonitor} ml={3} isLoading={delLoading}>
+                      <Button
+                        colorScheme="red"
+                        onClick={deleteMonitor}
+                        ml={3}
+                        isLoading={delLoading}
+                      >
                         Delete
                       </Button>
                     </ModalFooter>

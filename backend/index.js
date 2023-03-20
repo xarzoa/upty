@@ -33,9 +33,4 @@ app.post('/__space/v0/actions', async (req, res) => {
   }
 });
 
-setInterval(() => {
-  checkStatus();
-  sendNotifications();
-}, 60000);
-
 app.listen(PORT);

@@ -7,12 +7,6 @@ micros:
     src: app
     engine: next
     primary: true
-    actions:
-      - id: 'alert'
-        name: 'Sending alerts'
-        description: 'Choose how frequently you should alerts by choosing scheduled actions time. Default is 10 minutes.'
-        trigger: 'schedule'
-        default_interval: '*/10 * * * *'
 
   - name: backend
     src: backend
@@ -20,8 +14,14 @@ micros:
     path: __backend
     run: 'node .'
     actions:
-      - id: 'statusCheck'
-        name: 'Checking status'
-        description: 'Choose how frequently ur pages should check by choosing scheduled actions time. Default is 10 minutes.'
+      - id: 'check'
+        name: 'Ping URLs'
+        description: 'Choose how frequently ur pages should check by changing this. Default is 10 minutes.'
         trigger: 'schedule'
         default_interval: '*/10 * * * *'
+
+      - id: 'notify'
+        name: 'Notifications'
+        description: 'Choose how frequently you should recieve notifications by changing this. Default is 30 minutes.'
+        trigger: 'schedule'
+        default_interval: '*/30 * * * *'

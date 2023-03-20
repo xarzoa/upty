@@ -54,6 +54,16 @@ Sending get requests to your urls using axios on a schedule.(OSS, if you wanna s
 
 No. Use [Upty public](https://deta.space/discovery/@xarzoa/status)
 
+
+## To-do
+
+[ ] Customizable req type
+[ ] Checking protected APIs
+[ ] Notify via SMTP
+[ ] Down history
+[ ] Responce time charts
+[ ] No vendor locking (Curruntly hostable on Deta.space only!)
+ 
 By [xarzoa](https://xat.icu).
 
 Copyright 2023.
