@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { getMonitors, updateMonitor, updateStatus } = require('./db');
+const { getMonitors, updateMonitor, updateStatus, updateHistory } = require('./db');
 
 async function checkStatus() {
   const monitors = await getMonitors();
@@ -23,11 +23,8 @@ async function checkStatus() {
           res_time: calcTime,
         }, monitors[i].key);
 
-        if (res.status > 399) {
-          await updateMonitor(monitors[i].key, true);
-        } else {
-          await updateMonitor(monitors[i].key, false);
-        }
+        await updateMonitor(monitors[i].key, res.status > 399);
+        await updateHistory( res.status, monitors[i].key, res.statusText, monitors[i].name, monitors[i].url )
         
         console.log(
           `Checked "${

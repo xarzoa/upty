@@ -5,6 +5,7 @@ const deta = Deta();
 
 const monitors = deta.Base('monitors');
 const status = deta.Base('status');
+const history = deta.Base('history')
 
 async function addMonitor(data) {
   const id = uuid(data.url);
@@ -47,5 +48,10 @@ async function getMonitor(id){
   return data
 }
 
+async function getHistory(){
+  const { items } = await history.fetch()
+  return items
+}
 
-export { addMonitor, getMonitors, getStatus, deleteMonitor, getMonitor, updateMonitor };
+
+export { addMonitor, getMonitors, getStatus, deleteMonitor, getMonitor, updateMonitor, getHistory };

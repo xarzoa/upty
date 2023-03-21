@@ -10,7 +10,7 @@ import {
   Heading,
   Tag,
   Wrap,
-  WrapItem,
+  WrapItem
 } from '@chakra-ui/react';
 
 export default function Status({ status }) {
@@ -23,7 +23,7 @@ export default function Status({ status }) {
       <Card borderRadius="xl">
         <CardBody>
           <HStack>
-            {isAvailable ? (
+            { isAvailable ? (
               <Box color="green.400">
                 <CheckIcon />
               </Box>
@@ -39,44 +39,74 @@ export default function Status({ status }) {
               <WrapItem>
                 <Tag>{status.url}</Tag>
               </WrapItem>
-              <WrapItem>
-                <Tag>
-                  {status.checked_method}
-                </Tag>
-              </WrapItem>
+              {status.checked_method ? (
+                <WrapItem>
+                  <Tag>{status.checked_method}</Tag>
+                </WrapItem>
+              ) : (
+                ''
+              )}
               <WrapItem>
                 <Tag colorScheme="blue">
-                  {status.res_time? status.res_time : 'Not counted ' }ms
+                  {status.res_time ? status.res_time : 'Not counted'}ms
                 </Tag>
               </WrapItem>
-              <WrapItem>
-                <Tag colorScheme={isAvailable ? 'green' : 'red'}>
-                  {status.code}
-                </Tag>
-              </WrapItem>
-              <WrapItem>
-                <Tag colorScheme={isAvailable ? 'green' : 'red'}>
-                  {status.message}
-                </Tag>
-              </WrapItem>
-              <WrapItem>
-                <Tag colorScheme={status.encrypted_socket ? 'green' : 'red'}>
-                  {status.encrypted_socket ? "Encrypted socket" : "Unencrypted socket" }
-                </Tag>
-              </WrapItem>
-              <WrapItem>
-                <Tag colorScheme={(status.protocol === 'HTTPS') ? 'green' : 'yellow'}>
-                  {status.protocol}
-                </Tag>
-              </WrapItem>
-              <WrapItem>
-                <Tag>
-                  {status.server}
-                </Tag>
-              </WrapItem>
-              <WrapItem>
-                <Tag>Last checked at {lastChecked}</Tag>
-              </WrapItem>
+              {status.code ? (
+                <WrapItem>
+                  <Tag colorScheme={isAvailable ? 'green' : 'red'}>
+                    {status.code}
+                  </Tag>
+                </WrapItem>
+              ) : (
+                ''
+              )}
+              {status.message ? (
+                <WrapItem>
+                  <Tag colorScheme={isAvailable ? 'green' : 'red'}>
+                    {status.message}
+                  </Tag>
+                </WrapItem>
+              ) : (
+                ''
+              )}
+              {status.encrypted_socket ? (
+                <WrapItem>
+                  <Tag colorScheme={status.encrypted_socket ? 'green' : 'red'}>
+                    {status.encrypted_socket
+                      ? 'Encrypted socket'
+                      : 'Unencrypted socket'}
+                  </Tag>
+                </WrapItem>
+              ) : (
+                ''
+              )}
+              {status.protocol ? (
+                <WrapItem>
+                  <Tag
+                    colorScheme={
+                      status.protocol === 'HTTPS' ? 'green' : 'yellow'
+                    }
+                  >
+                    {status.protocol}
+                  </Tag>
+                </WrapItem>
+              ) : (
+                ''
+              )}
+              {status.server ? (
+                <WrapItem>
+                  <Tag>{status.server}</Tag>
+                </WrapItem>
+              ) : (
+                ''
+              )}
+              {status.last_checked ? (
+                <WrapItem>
+                  <Tag>Last checked at {lastChecked}</Tag>
+                </WrapItem>
+              ) : (
+                ''
+              )}
             </Wrap>
           </HStack>
         </CardBody>

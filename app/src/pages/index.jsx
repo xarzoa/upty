@@ -34,8 +34,8 @@ export default function Index() {
         {!isLoading ? (
           <VStack spacing={2} align="stretch" w="100%">
             <Header />
-            {data.status[0] ? (
-              data.status.map((status, i) => <Status status={status} key={i} />)
+            {data[0] ? (
+              data.map((status, i) => <Status status={status} key={i} />)
             ) : (
               <Card borderRadius="xl">
                 <CardBody>

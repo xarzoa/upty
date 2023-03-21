@@ -31,6 +31,14 @@ app.post('/__space/v0/actions', async (req, res) => {
     }
     return;
   }
+
+  if(event.id === 'old'){
+    try{
+      
+    }catch(e){
+      console.log(e.message)
+    }
+  }
 });
 
 app.listen(PORT);

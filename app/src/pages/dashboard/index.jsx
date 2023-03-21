@@ -52,8 +52,8 @@ export default function Dashboard() {
         {!isLoading ? (
           <VStack spacing={2} align="stretch" w="100%">
             <Header />
-            {data.monitors[0] ? (
-              data.monitors.map((monitor, i) => (
+            {data[0] ? (
+              data.map((monitor, i) => (
                 <Monitor monitor={monitor} key={i} />
               ))
             ) : (

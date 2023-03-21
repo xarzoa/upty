@@ -8,7 +8,6 @@ import {
   IconButton,
   useDisclosure,
   Tooltip,
-  HStack,
   Center
 } from '@chakra-ui/react';
 import HelpIcon from '@components/icons/help';
@@ -43,8 +42,6 @@ export default function Notifications({ dest }) {
         <ModalOverlay backdropFilter="blur(10px)" />
         <ModalContent borderRadius="xl">
           <ModalBody>
-            <HStack>
-            </HStack>
             <Center>
             <IconButton
               size="lg"

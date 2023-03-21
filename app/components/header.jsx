@@ -1,10 +1,10 @@
 import SettingsIcon from '@components/icons/settings';
 import ClockIcon from '@components/icons/clock';
 import ShareIcon from '@components/icons/share';
-import ArrowPathIcon from '@components/icons/arrowPath';
 import LeftArrowIcon from '@components/icons/leftArrow';
 import AddMonitor from '@components/addMonitor';
 import Help from '@components/help';
+import History from '@components/history'
 import { useRouter } from 'next/router';
 import {
   Flex,
@@ -52,54 +52,13 @@ export default function Header() {
               }
             />
           </Tooltip>
-          {dest.includes('/monitor') ? (
-            ''
-          ) : (
-            <Tooltip
-              hasArrow
-              label="Refresh page"
-              bg="white"
-              closeDelay={1500}
-              borderRadius="xl"
-            >
-              <IconButton
-                size="lg"
-                bg="gray.700"
-                p={1}
-                icon={<ArrowPathIcon />}
-                onClick={() => router.push(dest)}
-              />
-            </Tooltip>
-          )}
         </HStack>
         <Spacer />
         <HStack>
           {dest.includes('/monitor') ? (
             ''
           ) : (
-            <Tooltip
-              hasArrow
-              label="Down history"
-              bg="white"
-              closeDelay={1500}
-              borderRadius="xl"
-            >
-              <IconButton
-                size="lg"
-                p={1}
-                bg="gray.700"
-                icon={<ClockIcon />}
-                onClick={() =>
-                  toast({
-                    title: 'Info',
-                    description: 'Not available!',
-                    status: 'success',
-                    position: 'bottom-left',
-                    isClosable: true,
-                  })
-                }
-              />
-            </Tooltip>
+            <History/>
           )}
           <Help dest={dest} />
           {dest === '/dashboard' ? <AddMonitor /> : ''}

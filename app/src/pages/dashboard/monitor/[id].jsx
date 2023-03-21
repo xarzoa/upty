@@ -78,9 +78,9 @@ export default function EditMonitor() {
   const toast = useToast();
 
   useEffect(() => {
-    setName(data?.monitor.name);
-    setUrl(data?.monitor.url);
-    setWebhook(data?.monitor.webhook);
+    setName(data?.name);
+    setUrl(data?.url);
+    setWebhook(data?.webhook);
   }, [data]);
 
   async function deleteMonitor() {
@@ -234,7 +234,7 @@ export default function EditMonitor() {
                     <ModalCloseButton borderRadius="xl" />
                     <Divider />
                     <ModalBody>
-                      Do you really want to delete <b>{data.monitor.key}</b>{' '}
+                      Do you really want to delete <b>{data.key}</b>{' '}
                       monitor ?
                     </ModalBody>
                     <Divider />
