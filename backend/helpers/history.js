@@ -30,7 +30,7 @@ function historyInt(code, message, monitor, name, url) {
     for: checkFor(code > 399, monitor.down, nowTime, monitor.checked_at, monitor.for),
     checked_at: nowTime,
     last_checked: newDate,
-    since: checkSince(code > 399, monitor.down, newDate, monitor.last_checked)
+    since: checkSince(code > 399, monitor.down, newDate, monitor.since)
   };
 }
 
