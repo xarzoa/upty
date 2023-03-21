@@ -2,6 +2,8 @@ import {
   Modal,
   ModalBody,
   ModalOverlay,
+  ModalHeader,
+  ModalCloseButton,
   ModalContent,
   Button,
   Divider,
@@ -12,11 +14,10 @@ import {
   Spinner,
   Alert,
   AlertIcon,
-  AlertTitle,
-  AlertDescription,
   SkeletonText,
 } from '@chakra-ui/react';
 import ClockIcon from '@components/icons/clock';
+import HistoryWrap from '@components/historyWrapper'
 import useSWR from 'swr';
 
 export default function History() {
@@ -27,32 +28,6 @@ export default function History() {
     isLoading,
   } = useSWR('/api/getHistory', fetcher, { refreshInterval: 1000 });
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  function dhm(ms) {
-    const days = Math.floor(ms / (24 * 60 * 60 * 1000));
-    const daysms = ms % (24 * 60 * 60 * 1000);
-    const hours = Math.floor(daysms / (60 * 60 * 1000));
-    const hoursms = ms % (60 * 60 * 1000);
-    const minutes = Math.floor(hoursms / (60 * 1000));
-    const minutesms = ms % (60 * 1000);
-    const sec = Math.floor(minutesms / 1000);
-    if (days !== 0) {
-      return (
-        days + ' days ' + hours + ' hours ' + minutes + ' mins ' + sec + ' secs'
-      );
-    } else if (hours !== 0) {
-      return hours + ' hours ' + minutes + ' mins ' + sec + ' secs';
-    } else if (minutes !== 0) {
-      return minutes + ' mins ' + sec + ' secs';
-    } else {
-      return sec + ' secs';
-    }
-  }
-
-  function localDT(date) {
-    const toDate = new Date(date);
-    return `${toDate.toLocaleDateString()} ${toDate.toLocaleTimeString()}`;
-  }
 
   if (isLoading)
     return (
@@ -73,9 +48,10 @@ export default function History() {
               onClick={onOpen}
             />
           </Tooltip>
-          <Modal isOpen={isOpen} onClose={onClose}>
+          <Modal isOpen={isOpen} onClose={onClose} size="full">
             <ModalOverlay backdropFilter="blur(10px)" />
             <ModalContent borderRadius="xl">
+            <ModalCloseButton borderRadius="xl"/>
               <ModalBody>
                 <SkeletonText
                   mt="4"
@@ -108,29 +84,15 @@ export default function History() {
             onClick={onOpen}
           />
         </Tooltip>
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal isOpen={isOpen} onClose={onClose} size="full">
           <ModalOverlay backdropFilter="blur(10px)" />
           <ModalContent borderRadius="xl">
+          <ModalHeader>History</ModalHeader>
+          <ModalCloseButton borderRadius="xl"/>
             <ModalBody>
               {data[0] ? (
                 data.map((monitor, key) => (
-                  <Alert
-                    status={monitor.down ? 'error' : 'success'}
-                    key={key}
-                    my={3}
-                    borderRadius="xl"
-                    flexDirection="column"
-                    alignItems="center"
-                    justifyContent="center"
-                    textAlign="center"
-                  >
-                    <AlertIcon />
-                    <AlertTitle>
-                      {monitor.name} is {monitor.down ? 'down' : 'up'}
-                    </AlertTitle>
-                    <AlertDescription>For {dhm(monitor.for)}</AlertDescription>{' '}
-                    <AlertTitle>Since{localDT(monitor.since)}</AlertTitle>
-                  </Alert>
+                  <HistoryWrap data={monitor} key={key}/>
                 ))
               ) : (
                 <Alert status="info" my={3} borderRadius="xl">

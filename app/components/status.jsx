@@ -24,11 +24,11 @@ export default function Status({ status }) {
         <CardBody>
           <HStack>
             { isAvailable ? (
-              <Box color="green.400">
+              <Box color="green.300">
                 <CheckIcon />
               </Box>
             ) : (
-              <Box color="red.400">
+              <Box color="red.300">
                 <XCircleIcon />
               </Box>
             )}
