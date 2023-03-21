@@ -5,7 +5,7 @@ const deta = Deta();
 
 const monitors = deta.Base('monitors');
 const status = deta.Base('status');
-const history = deta.Base('history')
+const history = deta.Base('history');
 
 async function addMonitor(data) {
   const id = uuid(data.url);
@@ -21,7 +21,7 @@ async function getMonitors() {
   return items;
 }
 
-async function updateMonitor(data,key){
+async function updateMonitor(data, key) {
   await monitors.update(
     {
       name: data.name,
@@ -41,17 +41,25 @@ async function getStatus() {
 async function deleteMonitor(id) {
   await monitors.delete(id);
   await status.delete(id);
+  await history.delete(id);
 }
 
-async function getMonitor(id){
-  const data = await monitors.get(id)
-  return data
+async function getMonitor(id) {
+  const data = await monitors.get(id);
+  return data;
 }
 
-async function getHistory(){
-  const { items } = await history.fetch()
-  return items
+async function getHistory() {
+  const { items } = await history.fetch();
+  return items;
 }
 
-
-export { addMonitor, getMonitors, getStatus, deleteMonitor, getMonitor, updateMonitor, getHistory };
+export {
+  addMonitor,
+  getMonitors,
+  getStatus,
+  deleteMonitor,
+  getMonitor,
+  updateMonitor,
+  getHistory,
+};
