@@ -15,12 +15,14 @@ import {
   Flex,
   Spacer,
 } from '@chakra-ui/react';
+import { useRouter } from 'next/router'
 
 export default function Index() {
   const fetcher = (url) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR('/api/getStatus', fetcher, {
     refreshInterval: 1000,
   });
+  const router = useRouter()
   const headData = {
     title: 'Upty - A personal uptime monitor',
     description: 'Uptime monitor for Detonions',
