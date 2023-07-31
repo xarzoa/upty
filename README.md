@@ -8,9 +8,11 @@ Uptime monitor for **Detonions**.
 
 🍻**Deta's shipathon winner** for **best app icon**.
 
-<h3 align="left">Coffee === Boost</h3>
+<h3 align="left">Support development.</h3>
 <p><a href="https://ko-fi.com/xarzoa"> <img align="left" src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" height="50" width="210" alt="xarzoa" /></a></p><br><br>
 
+
+## 
 **Notes**
 
 - If you need Public page, Goto [Upty public](https://deta.space/discovery/@xarzoa/status).
