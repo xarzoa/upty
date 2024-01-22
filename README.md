@@ -8,14 +8,10 @@ Uptime monitor for **Detonions**.
 
 🍻**Deta's shipathon winner** for **best app icon**.
 
-<h3 align="left">Support development.</h3>
-<p><a href="https://ko-fi.com/xarzoa"> <img align="left" src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" height="50" width="210" alt="xarzoa" /></a></p><br><br>
-
-
 ## 
 **Notes**
 
-- If you need Public page, Goto [Upty public](https://deta.space/discovery/@xarzoa/status).
+- If you need Public page, Goto [Upty public](https://deta.space/discovery/@xarzoa/status).\[Discontinued\]
 - Still under development, Wait until atleast 0.5.0 for stable release.
 
 ## Key features
@@ -57,18 +53,23 @@ Sending get requests to your urls using axios on a schedule.(OSS, if you wanna s
 
 **Is it safe to share my instance url with someone else?**
 
-No. Use [Upty public](https://deta.space/discovery/@xarzoa/status)
+No. Use [Upty public](https://deta.space/discovery/@xarzoa/status) \[Discontinued\]
 
 
 ## To-do
 
 [ ] Customizable req type
+
 [ ] Checking protected APIs
+
 [ ] Notify via SMTP
+
 [ ] Down history
+
 [ ] Responce time charts
+
 [ ] No vendor locking (Curruntly hostable on Deta.space only!)
  
-By [xarzoa](https://xat.icu).
+By **xarzoa**.
 
-Copyright 2023.
+Copyright 2023-2024.

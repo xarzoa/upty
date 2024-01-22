@@ -3,7 +3,7 @@ import ClockIcon from '@components/icons/clock';
 import ShareIcon from '@components/icons/share';
 import LeftArrowIcon from '@components/icons/leftArrow';
 import AddMonitor from '@components/addMonitor';
-import Help from '@components/help';
+import GithubIcon from '@components/icons/brand/github';
 import History from '@components/history'
 import { useRouter } from 'next/router';
 import {
@@ -60,7 +60,14 @@ export default function Header() {
           ) : (
             <History/>
           )}
-          <Help dest={dest} />
+          <IconButton
+              size="lg"
+              p={1}
+              m={2}
+              bg="#181717"
+              icon={<GithubIcon />}
+              onClick={() => location.href = 'https://github.com/xarzoa/upty'}
+            />
           {dest === '/dashboard' ? <AddMonitor /> : ''}
         </HStack>
       </Flex>

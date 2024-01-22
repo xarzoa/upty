@@ -3,7 +3,7 @@ title: "Upty: Uptime monitor on deta."
 tagline: "Uptime monitor for detonions."
 theme_color: "#000"
 git: "https://github.com/xarzoa/upty"
-homepage: "https://upty.xat.icu/"
+homepage: "https://github.com/xarzoa/upty"
 ---
 
 Uptime monitor for **Detonions**.
@@ -12,7 +12,7 @@ Uptime monitor for **Detonions**.
 
 **Notes**
 
-- If you need Public page, Goto [Upty public](/discovery/@xarzoa/status).
+- If you need Public page, Goto [Upty public](/discovery/@xarzoa/status) \[Discontinued\].
 - Still under development, Wait until atleast 0.5.0 for stable release.
 
 ## Key features
@@ -20,7 +20,7 @@ Uptime monitor for **Detonions**.
 - Public page. (Seperated app)
 - More details about your page/url/ip.
 - Supports IPs.
-- No verificaton.
+- No server side verificaton. (You can even monitor google lol)
 - Public API.
 - Open source.
 - Discord notifications.
@@ -54,6 +54,6 @@ Sending get requests to your urls using axios on a schedule.(OSS, if you wanna s
 
 **Is it safe to share my instance url with someone else?**
 
-No. Use [Upty public](/discovery/@xarzoa/status)
+No. Use [Upty public](/discovery/@xarzoa/status) \[Discontinued\]
 
-By [xarzoa](https://xat.icu).
+By **xarzoa**
